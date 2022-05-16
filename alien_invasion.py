@@ -36,7 +36,8 @@ class AlienInvasion:
         while True:
             self._check_events()
             self.ship.update()
-            self._update_bullets()           
+            self._update_bullets()
+            self._update_aliens()           
             self._update_screen()          
 
     def _check_events(self):
@@ -83,6 +84,10 @@ class AlienInvasion:
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
         # print(len(self.bullets)) - Slow games per book so commented out
+
+    def _update_aliens(self):
+        """Update the positions of all aliens in the fleet."""
+        self.aliens.update()
 
     def _create_fleet(self):
         """Create the fleet of aliens."""
